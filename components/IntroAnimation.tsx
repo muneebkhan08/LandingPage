@@ -75,7 +75,7 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onComplete }) => {
 
     const chars = "010101<>{}[]/\\Σ∫πƒ∆∇EduAI";
     const particles: { x: number; y: number; z: number; char: string; color: string }[] = [];
-    const particleCount = 400; // Optimized count
+    const particleCount = window.innerWidth < 768 ? 80 : 150; // Reduced for performance
     
     // Initialize
     for (let i = 0; i < particleCount; i++) {
@@ -130,15 +130,15 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onComplete }) => {
         const py = p.y * k + cy;
 
         if (px >= -100 && px <= width + 100 && py >= -100 && py <= height + 100 && p.z > 10) {
-          const size = (1 - p.z / 4000) * 30; 
+          const size = (1 - p.z / 4000) * 20; 
           const alpha = (1 - p.z / 4000); 
           
-          // Optimize text rendering: skip very small particles
-          if (size > 1) {
-              ctx.font = `bold ${size}px "JetBrains Mono"`;
+          if (size > 2) {
               ctx.fillStyle = p.color;
-              ctx.globalAlpha = alpha;
-              ctx.fillText(p.char, px, py);
+              ctx.globalAlpha = alpha * 0.8;
+              ctx.beginPath();
+              ctx.arc(px, py, size / 2, 0, Math.PI * 2);
+              ctx.fill();
               ctx.globalAlpha = 1.0;
           }
         }
@@ -168,10 +168,9 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onComplete }) => {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
       {/* Phase 2: The Formula (Text) */}
-      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 transform ${phase === 'formula' ? 'scale-100 opacity-100 blur-0' : 'scale-150 opacity-0 blur-xl pointer-events-none'}`}>
-         <div className="relative group text-center px-4">
-            <div className="absolute -inset-12 bg-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <h1 className="relative text-3xl md:text-5xl lg:text-6xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-violet-200 to-emerald-200 tracking-widest drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]">
+      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-700 transform ${phase === 'formula' ? 'scale-100 opacity-100' : 'scale-110 opacity-0 pointer-events-none'}`}>
+         <div className="relative text-center px-4">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-mono font-bold text-white tracking-wide">
               {formulaText}
               <span className="animate-pulse text-emerald-400">_</span>
             </h1>

@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import IntroAnimation from './components/IntroAnimation';
-import { Globe, Instagram, Linkedin, MessageCircle, ArrowRight, Share2, ArrowLeft, Monitor, Users } from 'lucide-react';
+import { Globe, Instagram, Linkedin, MessageCircle, ArrowRight, Share2, ArrowLeft } from 'lucide-react';
 
 const App: React.FC = () => {
   const [showIntro, setShowIntro] = useState(true);
@@ -20,22 +20,20 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-4 relative overflow-hidden font-sans">
         {/* Ambient Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-violet-600/20 rounded-full blur-[120px] animate-pulse"></div>
-            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-emerald-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-violet-600/10 rounded-full blur-[80px]"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[80px]"></div>
         </div>
 
-        <div className="max-w-2xl w-full relative z-10 flex flex-col items-center gap-12 animate-in fade-in zoom-in-95 duration-700">
+        <div className="max-w-2xl w-full relative z-10 flex flex-col items-center gap-12">
             
             {/* Brand Header */}
             <div className="flex flex-col items-center text-center gap-6">
                 {/* SVG Logo - Black loop on white circle */}
-                <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.15)] mb-2 overflow-hidden p-4">
-                     {/* Abstract Loop Logo */}
-                     <svg viewBox="0 0 100 100" className="w-full h-full text-black" stroke="currentColor" fill="none" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg mb-2 p-4">
+                     <svg viewBox="0 0 100 100" className="w-full h-full text-black" stroke="currentColor" fill="none" strokeWidth="10" strokeLinecap="round">
                         <path d="M25 25 C 50 50, 50 50, 75 75" />
                         <path d="M75 25 C 50 50, 50 50, 25 75" />
-                        <path d="M25 25 C 25 40, 25 60, 25 75" strokeWidth="0" /> {/* Spacer */}
-                        <circle cx="50" cy="50" r="35" strokeWidth="8" className="opacity-100" />
+                        <circle cx="50" cy="50" r="35" strokeWidth="8" />
                      </svg>
                 </div>
                 
@@ -55,29 +53,19 @@ const App: React.FC = () => {
                         
                         {/* Website Button */}
                         <div className="w-full flex items-center gap-4 group relative">
-                            {/* Left Label */}
-                            <div className="hidden md:flex flex-col items-end w-40 shrink-0 absolute -left-48 top-1/2 -translate-y-1/2 transition-transform group-hover:-translate-x-2">
-                                <span className="text-xs font-mono text-violet-400 uppercase tracking-wider mb-1 text-right">Start learning now</span>
-                                <ArrowRight className="w-5 h-5 text-violet-500" />
-                            </div>
-
                             <a 
                                 href="https://edu-ai-at.vercel.app/" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="w-full glass-panel p-5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 hover:border-violet-500/50 text-left group-hover:shadow-neon-violet relative overflow-hidden active:scale-98"
+                                className="w-full glass-panel p-5 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-violet-500/50 text-left active:scale-98"
                             >
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 p-3 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-                                    <Monitor className="w-32 h-32 -rotate-12 text-violet-500" />
-                                </div>
-
-                                <div className="flex items-center gap-5 relative z-10">
-                                    <div className="p-4 bg-violet-500/20 rounded-xl text-violet-300 border border-violet-500/20 group-hover:bg-violet-500 group-hover:text-white transition-colors shadow-[0_0_15px_rgba(139,92,246,0.2)]">
+                                <div className="flex items-center gap-5">
+                                    <div className="p-4 bg-violet-500/20 rounded-xl text-violet-300 border border-violet-500/20 group-hover:bg-violet-500 group-hover:text-white transition-colors">
                                         <Globe className="w-7 h-7" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-violet-200 transition-colors">Official Website</h3>
-                                        <p className="text-xs text-slate-400 font-mono mt-1 group-hover:text-slate-300">Visit AI Edtech Platform</p>
+                                        <h3 className="text-xl font-bold text-white">Official Website</h3>
+                                        <p className="text-xs text-slate-400 font-mono mt-1">Visit AI Edtech Platform</p>
                                     </div>
                                 </div>
                             </a>
@@ -85,27 +73,17 @@ const App: React.FC = () => {
 
                         {/* Socials Button */}
                         <div className="w-full flex items-center gap-4 group relative">
-                             {/* Left Label */}
-                            <div className="hidden md:flex flex-col items-end w-40 shrink-0 absolute -left-48 top-1/2 -translate-y-1/2 transition-transform group-hover:-translate-x-2">
-                                <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-1 text-right">Interact with us</span>
-                                <ArrowRight className="w-5 h-5 text-emerald-500" />
-                            </div>
-
                             <button 
                                 onClick={() => setShowSocials(true)}
-                                className="w-full glass-panel p-5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 hover:border-emerald-500/50 text-left group-hover:shadow-neon-emerald relative overflow-hidden active:scale-98"
+                                className="w-full glass-panel p-5 rounded-2xl hover:bg-white/10 transition-colors border border-white/5 hover:border-emerald-500/50 text-left active:scale-98"
                             >
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 p-3 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-                                    <Users className="w-32 h-32 -rotate-12 text-emerald-500" />
-                                </div>
-
-                                <div className="flex items-center gap-5 relative z-10">
-                                    <div className="p-4 bg-emerald-500/20 rounded-xl text-emerald-300 border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-colors shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                <div className="flex items-center gap-5">
+                                    <div className="p-4 bg-emerald-500/20 rounded-xl text-emerald-300 border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                                         <Share2 className="w-7 h-7" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-emerald-200 transition-colors">Socials</h3>
-                                        <p className="text-xs text-slate-400 font-mono mt-1 group-hover:text-slate-300">Connect with community</p>
+                                        <h3 className="text-xl font-bold text-white">Socials</h3>
+                                        <p className="text-xs text-slate-400 font-mono mt-1">Connect with community</p>
                                     </div>
                                 </div>
                             </button>
