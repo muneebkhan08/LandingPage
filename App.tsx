@@ -124,7 +124,7 @@ const App: React.FC = () => {
 
                             {/* Instagram */}
                             <a
-                                href="https://www.instagram.com/edu.aio?igsh=MXE1YmF3dDhzMGtuNw=="
+                                href="https://www.instagram.com/edvay.limited"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group w-full p-4 glass-panel hover:bg-pink-500/10 rounded-2xl flex items-center justify-between transition-all border border-white/10 hover:border-pink-500/50"
