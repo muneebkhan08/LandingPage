@@ -140,7 +140,7 @@ const App: React.FC = () => {
 
                             {/* LinkedIn */}
                             <a
-                                href="https://www.linkedin.com/company/edu-ai-o/"
+                                href="https://www.linkedin.com/in/muhammadmuneebkhan8304/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group w-full p-4 glass-panel hover:bg-blue-500/10 rounded-2xl flex items-center justify-between transition-all border border-white/10 hover:border-blue-500/50"
